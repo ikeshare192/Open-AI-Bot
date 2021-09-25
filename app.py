@@ -1,4 +1,4 @@
-from flask import Flask, app, request, session
+from flask import Flask, request, session
 from twilio.twiml.messaging_response import MessagingResponse
 from lojackbot import ask, append_interaction_to_chatlog
 
@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/lojackbot', methods = ['POST'])
 
-def lojackbot():
+def lojack():
     incoming_msg = request.values['Body']
     chat_log = session.get('chat_log')
     answer = ask(incoming_msg, chat_log)
