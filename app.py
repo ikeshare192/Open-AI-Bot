@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/lojackbot', methods = ['POST'])
 
-def LoJack():
+def lojackbot():
     incoming_msg = request.values['Body']
     chat_log = session.get('chat_log')
     answer = ask(incoming_msg, chat_log)
