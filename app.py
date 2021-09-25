@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'dfkjdfjkdjfekiai'
 def hello():
     return 'Hello World'
 
-@app.route('/lojack-bot', methods = ['POST'])
+@app.route('/lojackbot', methods = ['POST'])
 
 def LoJack():
     incoming_msg = request.values['Body']
