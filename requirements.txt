@@ -22,7 +22,7 @@ jinja2==3.0.1
 #libgfortran5==9.3.0
 #liblapack==3.9.0
 #libopenblas==0.3.17
-llvm-openmp==2.0.1
+#llvm-openmp==2.0.1
 markupsafe==2.0.1
 ncurses==6.2
 numpy==1.21.2
