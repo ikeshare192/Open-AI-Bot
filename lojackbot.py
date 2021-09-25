@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from random import choice
 
 load_dotenv()
-open.api_key = os.getenv("OPENAI_KEY")
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 completion = openai.Completion()
 
 start_sequence = "\nIke_Newton"
