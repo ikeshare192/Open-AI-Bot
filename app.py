@@ -6,12 +6,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'dfkjdfjkdjfekiai'
 
-@app.route('/')
-def hello():
-    return 'Hello World'
-
 @app.route('/lojackbot', methods = ['POST'])
-
 def lojack():
     incoming_msg = request.values['Body']
     chat_log = session.get('chat_log')
