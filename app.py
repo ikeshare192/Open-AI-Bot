@@ -1,6 +1,6 @@
 from flask import Flask, app, request, session
 from twilio.twiml.messaging_response import MessagingResponse
-from LoJack_Bot import ask, append_interaction_to_chatlog
+from lojackbot import ask, append_interaction_to_chatlog
 
 app = Flask(__name__)
 
