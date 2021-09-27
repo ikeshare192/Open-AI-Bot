@@ -4,10 +4,10 @@ from lojackbot import ask, append_interaction_to_chatlog
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'dfkjdfjkdjfekiai'
+#app.config['SECRET_KEY'] = 'dfkjdfjkdjfekiai'
 @app.route('/')
 def hello():
-    return("hello world")
+    return  "hello world"
 
 '''
 @app.route('/lojackbot', methods = ['POST'])
