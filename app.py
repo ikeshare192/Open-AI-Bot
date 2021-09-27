@@ -4,10 +4,7 @@ from lojackbot import ask, append_interaction_to_chatlog
 
 app = Flask(__name__)
 
-#app.config['SECRET_KEY'] = 'dfkjdfjkdjfekiai'
-@app.route('/')
-def hello():
-    return  "hello world"
+app.config['SECRET_KEY'] = 'dont-share-me'
 
 
 @app.route('/lojackbot', methods = ['POST'])
