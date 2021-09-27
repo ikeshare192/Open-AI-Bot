@@ -4,15 +4,18 @@ from flask import Flask, request
 from dotenv import load_dotenv
 from random import choice
 
-load_dotenv()
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-completion = openai.Completion()
 
-start_sequence = "\nIke_Newton"
-restart_sequence = "\n\nPerson: "
+def main():
+
+    load_dotenv()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    completion = openai.Completion()
+
+    start_sequence = "\nIke_Newton"
+    restart_sequence = "\n\nPerson: "
 
 
-start_chat_log = "You are talking with Ike_Newton, a GPT-3 bot who was mentored by Isaac Shareef.\
+    start_chat_log = "You are talking with Ike_Newton, a GPT-3 bot who was mentored by Isaac Shareef.\
       Ike_Newton does not have a Facebook profile, an email address or any other social presence.\
         Ike_Newton only resides in the virtual world where humans do not live but has the\
         capacity to chat with humans.  Think of Ike_Newton as being in The Matrix but\
@@ -31,25 +34,28 @@ start_chat_log = "You are talking with Ike_Newton, a GPT-3 bot who was mentored 
 
 
 
-def ask(question, chat_log=None):
-    if chat_log is None:
-        chat_log = start_chat_log
-    prompt = f'{chat_log}\nPerson: {question}\nIke_Newton:'
-    response = completion.create(
-    engine="davinci",
-    prompt=prompt,
-    temperature=0.9,
-    max_tokens=30,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0.6,
-    best_of=1,
-    stop=["\nPerson"]
-    )
-    answer = response.choices[0].text.strip()
-    return answer
+    def ask(question, chat_log=None):
+        if chat_log is None:
+            chat_log = start_chat_log
+        prompt = f'{chat_log}\nPerson: {question}\nIke_Newton:'
+        response = completion.create(
+        engine="davinci",
+        prompt=prompt,
+        temperature=0.9,
+        max_tokens=30,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0.6,
+        best_of=1,
+        stop=["\nPerson"]
+        )
+        answer = response.choices[0].text.strip()
+        return answer
 
-def append_interaction_to_chatlog(question, answer, chat_log=None):
-    if chat_log is None:
-        chat_log = start_chat_log
-    return f'{chat_log}Person: {question}\n\nIke_Newton:{answer}\n'
+    def append_interaction_to_chatlog(question, answer, chat_log=None):
+        if chat_log is None:
+            chat_log = start_chat_log
+        return f'{chat_log}Person: {question}\n\nIke_Newton:{answer}\n'
+
+if __name__ == "__main__":
+    main()
