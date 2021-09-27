@@ -108,6 +108,6 @@ werkzeug==2.0.1
 wheel==0.37.0
 #xz==5.2.5
 yarg==0.1.9
-zeromq==4.3.4
-zipp==3.5.0
-zlib==1.2.11
+#zeromq==4.3.4
+#zipp==3.5.0
+#zlib==1.2.11
