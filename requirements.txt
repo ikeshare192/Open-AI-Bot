@@ -100,7 +100,7 @@ tornado==6.1
 tqdm==4.62.3
 traitlets==5.1.0
 twilio==7.0.0
-tzdata==2021a
+tzdata==2021.1
 urllib3==1.26.7
 wcwidth==0.2.5
 webencodings==0.5.1
