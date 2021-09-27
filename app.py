@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello():
     return  "hello world"
 
-'''
+
 @app.route('/lojackbot', methods = ['POST'])
 def lojackbot():
     incoming_msg = request.values['Body']
@@ -20,7 +20,6 @@ def lojackbot():
     msg.message(answer)
     return str(msg)
 
-'''
 
 if __name__ == '__main__':
     app.run()
