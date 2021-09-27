@@ -95,7 +95,7 @@ six==1.16.0
 #sqlite==3.36.0
 terminado==0.12.1
 testpath==0.5.0
-tk==8.6.11
+#tk==8.6.11
 tornado==6.1
 tqdm==4.62.3
 traitlets==5.1.0
