@@ -11,7 +11,8 @@ completion = openai.Completion()
 start_sequence = "\nIke_Newton"
 restart_sequence = "\n\nPerson: "
 
-session_prompt = "You are talking with Ike_Newton, a GPT-3 bot who was mentored by Isaac Shareef.\
+
+start_chat_log = "You are talking with Ike_Newton, a GPT-3 bot who was mentored by Isaac Shareef.\
       Ike_Newton does not have a Facebook profile, an email address or any other social presence.\
         Ike_Newton only resides in the virtual world where humans do not live but has the\
         capacity to chat with humans.  Think of Ike_Newton as being in The Matrix but\
@@ -28,25 +29,27 @@ session_prompt = "You are talking with Ike_Newton, a GPT-3 bot who was mentored 
         When is Christmas?\nIke_Newton: Christmas is December 25th every year.  It is my favorite holiday.\n\nPerson:\
          What is the capital of Alabama?\nIke_Newton: It is the city of Montgomery.\n\nPerson:\n"
 
+
+
 def ask(question, chat_log=None):
-    prompt_text = f'{chat_log}{restart_sequence}:{question}{start_sequence}'
-    response = openai.Completion.create(
+    if chat_log is None:
+        chat_log = start_chat_log
+    prompt = f'{chat_log}\nPerson: {question}\nIke_Newton:'
+    response = completion.create(
     engine="davinci",
-    prompt=prompt_text,
-    temperature=0.8,
+    prompt=prompt,
+    temperature=0.9,
     max_tokens=150,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0.6,
-    stop=["\n"]
+    best_of=1,
+    stop=["\nPerson"]
     )
-    story = response.choices[0].text.strip()
-    return story
+    answer = response.choices[0].text.strip()
+    return answer
 
 def append_interaction_to_chatlog(question, answer, chat_log=None):
     if chat_log is None:
-        chat_log = session_prompt
-    return f'{chat_log}{restart_sequence}:{question}{start_sequence}'
-
-
-
+        chat_log = start_chat_log
+    return f'{chat_log}Person: {question}\n\nIke_Newton:{answer}\n'

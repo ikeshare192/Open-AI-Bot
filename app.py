@@ -13,7 +13,7 @@ def lojackbot():
     answer = ask(incoming_msg, chat_log)
     session['chat_log'] = append_interaction_to_chatlog(incoming_msg, answer, chat_log)
     msg = MessagingResponse()
-    msg.message('this is the response')
+    msg.message(answer)
     return str(msg)
 
 if __name__ == '__main__':
