@@ -22,7 +22,7 @@ dataclasses==0.6
 debugpy==1.4.1
 decorator==5.1.0
 defusedxml==0.7.1
-docopt==0.6.2=py_1
+docopt==0.6.2
 entrypoints==0.3
 et_xmlfile==1.0.1
 flask==2.0.1
