@@ -16,6 +16,5 @@ def lojackbot():
     msg.message(answer)
     return str(msg)
 
-
 if __name__ == '__main__':
     app.run()
