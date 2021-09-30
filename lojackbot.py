@@ -9,7 +9,7 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 completion = openai.Completion()
 
 start_sequence = "\nIke_Newton"
-restart_sequence = "\n\nPerson: "
+restart_sequence = "\n\nPerson:"
 
 
 start_chat_log = "You are talking with Ike_Newton, a GPT-3 bot who was mentored by Isaac Shareef.\
@@ -52,4 +52,4 @@ def ask(question, chat_log=None):
 def append_interaction_to_chatlog(question, answer, chat_log=None):
     if chat_log is None:
         chat_log = start_chat_log
-    return f'{chat_log}Person: {question}\n\nIke_Newton:{answer}\n'
+    return f'{chat_log}Person: {question}\nIke_Newton:{answer}\n'
